@@ -4,11 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -82,9 +78,27 @@ public class BillAppController {
             txtABill.setText(String.valueOf(aBill));
     }
 
+    void alertBill(String netBill){
+        //Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        //Alert alert = new Alert(AlertType.WARNING);
+
+        alert.setTitle("Your bill is here...");
+
+
+
+        alert.setHeaderText("Electricity Bill");
+        alert.setContentText("Your bill is :"+ netBill);
+//        alert.setContentText("Pay your bill soon!");
+
+        alert.showAndWait();
+    }
+
+
     @FXML
     void doBill(ActionEvent event) {
         txtNBill.setText(String.valueOf(bill-discountt));
+        alertBill(String.valueOf(bill-discountt));
     }
 
     @FXML
